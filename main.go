@@ -18,7 +18,7 @@ func main() {
 
 
 	app := fiber.New(fiber.Config{
-		Prefork:       true,
+		Prefork:       false,
 		CaseSensitive: true,
 		StrictRouting: true,
 		ServerHeader:  "Fiber",
@@ -37,9 +37,11 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000" // default for local dev
+		port = "3000" 
 	}
-	log.Fatal(app.Listen(":" + port))
+
+	log.Printf("🚀 Server is running on 0.0.0.0:%s\n", port)
+	log.Fatal(app.Listen("0.0.0.0:" + port))
 
 }
 
