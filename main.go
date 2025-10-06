@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"fiber/config"
+	"os"
 	"fiber/routes"
 	"github.com/gofiber/fiber/v2"
 )
@@ -27,7 +28,12 @@ func main() {
 }
 
 
-	log.Fatal(app.Listen(":3000"))
+	port := os.Getenv("PORT")
+if port == "" {
+    port = "3000" // default for local dev
+}
+log.Fatal(app.Listen(":" + port))
+
 }
 
 

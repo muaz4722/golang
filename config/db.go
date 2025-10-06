@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -13,7 +14,13 @@ import (
 var DB *mongo.Database
 
 func ConnectDB() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://muazahmad_db_user:0HMrWqakO4FMsZCr@employee.w6hjpis.mongodb.net/library_db?retryWrites=true&w=majority&appName=Library+Management+System"))
+
+	uri := os.Getenv("MONGO_URI")
+	if uri == "" {
+		log.Fatal("❌ MONGO_URI not set")
+	}
+
+	client, err := mongo.NewClient(options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,0 +1,25 @@
+# Ignore the .env file
+.env
+# Ignore any compiled binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib 
+
+# Ignore editor swap files
+*~.swp
+*.swo   
+
+#ignore modules
+
+vendor/
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+# Ignore log files
+*.log   
