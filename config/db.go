@@ -16,6 +16,7 @@ var DB *mongo.Database
 func ConnectDB() {
 
 	uri := os.Getenv("MONGO_URI")
+	log.Println("Mongo URI:", uri)
 	if uri == "" {
 		log.Fatal("❌ MONGO_URI not set")
 	}
