@@ -29,6 +29,7 @@ func main() {
 	config.ConnectDB()
 
 	routes.BookRoutes(app)
+	routes.UserRoutes(app)
 
 	for _, r := range app.GetRoutes() {
 	log.Println(r.Method, r.Path)

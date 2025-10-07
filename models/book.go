@@ -9,3 +9,5 @@ type Book struct {
 	Publisher string             `json:"publisher" bson:"publisher" validate:"required"`
 	Year      int                `json:"year" bson:"year" validate:"required,gte=1900,lte=2100"`
 }
+
+
